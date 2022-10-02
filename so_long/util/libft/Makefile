@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/07 00:10:26 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/02 16:48:32 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/02 17:49:45 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,11 +31,11 @@ OBJ = $(SRC:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
 
-CC = gcc $(FLAGS) -c
+CC = gcc $(FLAGS)
 
 all: $(NAME)
 $(NAME): $(OBJ)
-	ar rc libft.a $(OBJ)
+	@ar rc libft.a $(OBJ)
 
 clean:
 	@/bin/rm -f $(OBJ)

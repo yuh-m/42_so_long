@@ -6,11 +6,11 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 14:40:58 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/04 15:44:26 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:08:29 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {

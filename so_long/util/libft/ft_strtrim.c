@@ -6,11 +6,11 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 04:13:38 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/11 15:25:05 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:08:29 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 char	*ft_strtrim(char const *s1, char const *set)
 {

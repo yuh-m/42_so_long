@@ -6,11 +6,11 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 13:46:05 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/12 05:28:36 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:08:29 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

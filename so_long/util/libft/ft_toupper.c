@@ -6,11 +6,11 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/01 13:41:47 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/11 03:41:33 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:08:29 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 int	ft_toupper(int c)
 {

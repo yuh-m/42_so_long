@@ -6,11 +6,11 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/10 00:11:20 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/05/14 02:43:48 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/02 19:08:29 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../../inc/libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

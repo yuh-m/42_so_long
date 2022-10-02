@@ -14,7 +14,7 @@
 NAME = so_long
 
 #Compile
-CC = clang -c
+CC = clang
 FLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 
@@ -22,13 +22,12 @@ AR = ar -rcs
 VALGRIND =	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
 
 #Paths
-PATH_APP = ./app/
 PATH_INC = ./inc/
-PATH_MAP = ./map/
 PATH_SRC = ./src/
 PATH_UTIL = ./util/
 PATH_LIBFT = ./util/libft/
 PATH_OBJ = ./obj/
+PATH_BIN = ./bin/
 
 #MLXFLAGS = -lmlx -lXext -lX11
 
@@ -51,26 +50,35 @@ libft:
 
 $(NAME): $(OBJECTS)
 	cp $(PATH_LIBFT)libft.a $(PATH_UTIL)$(NAME)
-	ar -rcs $(PATH_LIBFT)$(NAME) $(OBJECTS)
+	ar -rcs $(PATH_UTIL)so_long $(OBJECTS)
 
 $(PATH_OBJ)%.o : $(PATH_SRC)%.c $(PATH_INC)*.h
 	mkdir -p $(PATH_OBJ)
-	$(CC) $(FLAGS) -c $< -I $(PATH_INC) -o $@
-	$(MAKE) -C
+#$(CC) $(FLAGS) -c $< -I$(PATH_INC) -o $@
+	$(CC) $(FLAGS) -c $< -o $@
+	$(MAKE)
 
 #$(CC) $(FLAGS) $(MLXFLAGS) -c $< -I $(PATH_INC) -o $@
 #$(MAKE) -C $(MINILBIX_PATH)
 
 main: ./app/app.c
-	@$(MKDIR) $(PATH_APP)
-	$(CC) $(FLAGS) $(OBJECTS) $< $(PATH_LIBFT)$(NAME) -I $(PATH_INC) - o $(PATH_APP)$(NAME)
+	@$(MKDIR) $(PATH_BIN)
+	$(CC) $(FLAGS) $(OBJECTS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
+
+run: all main
+	@$(PATH_BIN)$(NAME)
+
 
 clean:
 	@cd $(PATH_LIBFT) && $(MAKE) clean
+	@$(RM) $(OBJECTS)
+
 
 fclean: clean
 	@cd $(PATH_LIBFT) && $(MAKE) fclean
+	@$(RM) $(PATH_BIN)$(NAME)
+	@$(RM) $(PATH_UTIL)$(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re make_dir
+.PHONY: all clean fclean re

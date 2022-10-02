@@ -25,7 +25,7 @@ ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
 get_next_line.c \
 ft_len_unsigned.c ft_itoa_base.c ft_printf.c ft_print_char.c \
 ft_print_string.c ft_print_integer.c ft_print_unsigned_int.c \
-ft_print_pointer.c ft_print_x.c
+ft_print_pointer.c ft_print_x.c ft_putnbr_unsig.c
 
 OBJ = $(SRC:.c=.o)
 

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_validate_extension.c                          :+:      :+:    :+:   */
+/*   test_solong.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 03:23:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/04 04:44:52 by eryudi-m         ###   ########.fr       */
+/*   Created: 2022/10/04 04:27:13 by eryudi-m          #+#    #+#             */
+/*   Updated: 2022/10/04 04:37:07 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./unity/src/unity.h"
-#include "../so_long/inc/so_long.h"
+#include "test_solong.h"
 
-void test_validate_extension(void)
+void setUp(void) {
+    // set stuff up here
+}
+
+void tearDown(void) {
+    // clean stuff up here
+}
+
+int main(void)
 {
-	TEST_ASSERT_EQUAL(1, validate_extension("map1.ber"));
-	TEST_ASSERT_EQUAL(1, validate_extension(".ber"));
-	TEST_ASSERT_EQUAL(0, validate_extension(""));
-	TEST_ASSERT_EQUAL(0, validate_extension(".xyaber"));
+	UNITY_BEGIN();
+	RUN_TEST(test_validate_extension);
+	return UNITY_END();
 }

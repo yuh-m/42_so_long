@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/04 03:19:40 by eryudi-m         ###   ########.fr       */
+/*   Created: 2022/10/03 02:32:29 by eryudi-m          #+#    #+#             */
+/*   Updated: 2022/10/04 03:19:28 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../inc/so_long.h"
 
-# include "./libft.h"
+int so_long(int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		if (validate_extension(argv[1]))
+			ft_printf("starting game \n");
+		else
+		{
+			ft_printf("wrong format\n");
+		}
+	}
+	else
+	{
+		ft_printf("Provide only with the map to loaded");
+	}
 
-int so_long(int argc, char **argv);
-int validate_extension(char *filename);
-int load_map();
-
-#endif
-
+	return (0);
+}

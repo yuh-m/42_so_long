@@ -6,10 +6,9 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/02 19:25:50 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/04 03:20:12 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
 
 NAME = so_long
 
@@ -17,9 +16,12 @@ NAME = so_long
 CC = clang
 FLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
+DEBUG = -g3
+#MLXFLAGS = -lmlx -lXext -lX11
 
 #Debugging
 VALGRIND =	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
+DEBUGGER = gdb
 
 #Paths
 PATH_INC = ./inc/
@@ -29,18 +31,26 @@ PATH_LIBFT = ./util/libft/
 PATH_OBJ = ./obj/
 PATH_BIN = ./bin/
 
-#MLXFLAGS = -lmlx -lXext -lX11
+#Maps
+MAP = ./map/map1.ber
+#MAP = ./map/map2.ber
+#MAP = ./map/map3.ber
 
-SRC_FILES = load_map.c
+#Files
+SRC_FILES = so_long.c \
+			validate_extension.c \
+			load_map.c
 
 SOURCES = $(addprefix $(PATH_SRC), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
 OBJECTS = $(addprefix $(PATH_OBJ), $(OBJ_FILES))
 
+
 #Bash commandas
 MKDIR = mkdir -p
 RM = rm -f
 MAKE_NOPRINT = $(MAKE) --no-print-directory
+
 
 #TARGETS
 all: libft $(NAME)
@@ -49,8 +59,8 @@ libft:
 	@cd $(PATH_LIBFT) && $(MAKE_NOPRINT)
 
 $(NAME): $(OBJECTS)
-	cp $(PATH_LIBFT)libft.a $(PATH_UTIL)$(NAME)
-	ar -rcs $(PATH_UTIL)so_long $(OBJECTS)
+	@cp $(PATH_LIBFT)libft.a $(PATH_UTIL)$(NAME)
+	@ar -rcs $(PATH_UTIL)so_long $(OBJECTS)
 
 $(PATH_OBJ)%.o : $(PATH_SRC)%.c $(PATH_INC)*.h
 	mkdir -p $(PATH_OBJ)
@@ -61,18 +71,29 @@ $(PATH_OBJ)%.o : $(PATH_SRC)%.c $(PATH_INC)*.h
 #$(CC) $(FLAGS) $(MLXFLAGS) -c $< -I $(PATH_INC) -o $@
 #$(MAKE) -C $(MINILBIX_PATH)
 
+#Create executable file
 main: ./app/app.c
 	@$(MKDIR) $(PATH_BIN)
-	$(CC) $(FLAGS) $(OBJECTS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
+	@$(CC) $(FLAGS) $(OBJECTS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
 
+
+#Create and load executable file
 run: all main
-	@$(PATH_BIN)$(NAME)
+	@$(PATH_BIN)$(NAME) $(MAP)
 
 
+#Debbuging tools
+leak:
+	$(VALGRIND) $(PATH_BIN)$(NAME)
+
+gdb: ./app/app.c
+	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
+	$(DEBUGGER) $(PATH_BIN)$(NAME)
+
+#Delete compiled files
 clean:
 	@cd $(PATH_LIBFT) && $(MAKE) clean
 	@$(RM) $(OBJECTS)
-
 
 fclean: clean
 	@cd $(PATH_LIBFT) && $(MAKE) fclean

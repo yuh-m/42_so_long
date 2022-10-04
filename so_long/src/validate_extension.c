@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   validate_extension.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/04 03:19:40 by eryudi-m         ###   ########.fr       */
+/*   Created: 2022/10/04 03:19:20 by eryudi-m          #+#    #+#             */
+/*   Updated: 2022/10/04 03:19:41 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "../inc/so_long.h"
 
-# include "./libft.h"
+int validate_extension(char *filename)
+{
+	char	*extension;
+	int 	len;
+	int		i;
 
-int so_long(int argc, char **argv);
-int validate_extension(char *filename);
-int load_map();
-
-#endif
-
+	len = ft_strlen(filename);
+	extension = "reb.";
+	i = 4;
+	while (i > 0)
+	{
+		if (filename[len -i] != extension[i - 1])
+			return (0);
+		i--;
+	}
+	return (1);
+}

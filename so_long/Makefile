@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/04 03:20:12 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/05 03:25:10 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CC = clang
 FLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
 DEBUG = -g3
-#MLXFLAGS = -lmlx -lXext -lX11
+MLXFLAGS = -lmlx -lXext -lX11
+#-lm -lz -L/usr/lib
 
 #Debugging
 VALGRIND =	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes
@@ -64,18 +65,12 @@ $(NAME): $(OBJECTS)
 
 $(PATH_OBJ)%.o : $(PATH_SRC)%.c $(PATH_INC)*.h
 	mkdir -p $(PATH_OBJ)
-#$(CC) $(FLAGS) -c $< -I$(PATH_INC) -o $@
 	$(CC) $(FLAGS) -c $< -o $@
-	$(MAKE)
-
-#$(CC) $(FLAGS) $(MLXFLAGS) -c $< -I $(PATH_INC) -o $@
-#$(MAKE) -C $(MINILBIX_PATH)
 
 #Create executable file
 main: ./app/app.c
 	@$(MKDIR) $(PATH_BIN)
-	@$(CC) $(FLAGS) $(OBJECTS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
-
+	@$(CC) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
 
 #Create and load executable file
 run: all main

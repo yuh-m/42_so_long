@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/04 03:19:40 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/05 03:04:42 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 # define SO_LONG_H
 
 # include "./libft.h"
+# include <mlx.h>
 
 int so_long(int argc, char **argv);
 int validate_extension(char *filename);
-int load_map();
+int load_map(char *map_file);
 
 #endif
 

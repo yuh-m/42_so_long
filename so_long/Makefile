@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/05 03:25:10 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/05 04:46:21 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,8 @@ MAP = ./map/map1.ber
 #Files
 SRC_FILES = so_long.c \
 			validate_extension.c \
-			load_map.c
+			load_map.c \
+			handle.c
 
 SOURCES = $(addprefix $(PATH_SRC), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))

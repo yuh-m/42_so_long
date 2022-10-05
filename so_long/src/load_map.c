@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:56:35 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/05 03:26:53 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/05 05:11:16 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,25 @@
 
 int load_map(char *map_file)
 {
-	void	*mlx;
-	void	*mlx_win;
-	int		width;
-	int		height;
+	t_data	data;
 
-	width = 300;
-	height = 400;
 	ft_printf("Loading map %s \n", map_file);
-	mlx =mlx_init();
-	mlx_win = mlx_new_window(mlx, width, height, "so_long");
-	mlx_loop(mlx);
+	if (data.mlx == NULL)
+		return (MLX_ERROR);
+	data.mlx = mlx_init();
+	data.mlx_win = mlx_new_window(data.mlx, WINDOW_WID, WINDOW_HEI, "so_long");
+	if (data.mlx == NULL)
+	{
+		free(data.mlx_win);
+		return(MLX_ERROR);
+	}
+	mlx_loop_hook(data.mlx, &handle_no_event, &data);
+	mlx_hook(data.mlx_win, KeyPress, KeyPressMask, &handle_keypress,&data);
+	//mlx_hook(data.mlx_win, KeyPress, KeyPressMask, &handle_keypress,&data);
+	mlx_loop(data.mlx);
+
+	mlx_destroy_display(data.mlx);
+	free(data.mlx);
 
 	return(0);
 }

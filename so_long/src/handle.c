@@ -1,35 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   handle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/03 02:32:29 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/05 04:42:23 by eryudi-m         ###   ########.fr       */
+/*   Created: 2022/10/05 04:44:37 by eryudi-m          #+#    #+#             */
+/*   Updated: 2022/10/05 05:18:17 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int so_long(int argc, char **argv)
+int handle_no_event()
 {
-	if (argc == 2)
-	{
-		if (validate_extension(argv[1]))
-		{
-			ft_printf("starting game \n");
-			load_map(argv[1]);
-		}
-		else
-		{
-			ft_printf("wrong format\n");
-		}
-	}
-	else
-	{
-		ft_printf("Provide only with the map to loaded");
-	}
-
-	return (0);
+	return(0);
 }
+int handle_keypress(int keysym, t_data *data)
+{
+	if (keysym == XK_Escape)
+		mlx_destroy_window(data->mlx, data->mlx_win);
+	ft_printf("keypress = %d \n",keysym);
+	return(0);
+}
+
+int handle_keyrelease(int keysym, t_data *data)
+{
+	if (keysym == XK_Escape)
+		mlx_destroy_window(data->mlx, data->mlx_win);
+	ft_printf("keypress = %d \n",keysym);
+	return(0);
+}
+

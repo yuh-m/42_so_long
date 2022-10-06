@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/05 04:46:21 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/06 02:25:57 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ libft:
 	@cd $(PATH_LIBFT) && $(MAKE_NOPRINT)
 
 $(NAME): $(OBJECTS)
+#develop - the copy only happens if there is a change on libt
 	@cp $(PATH_LIBFT)libft.a $(PATH_UTIL)$(NAME)
 	@ar -rcs $(PATH_UTIL)so_long $(OBJECTS)
 

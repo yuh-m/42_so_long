@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:56:35 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/05 05:11:16 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/06 02:23:15 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int load_map(char *map_file)
 	}
 	mlx_loop_hook(data.mlx, &handle_no_event, &data);
 	mlx_hook(data.mlx_win, KeyPress, KeyPressMask, &handle_keypress,&data);
-	//mlx_hook(data.mlx_win, KeyPress, KeyPressMask, &handle_keypress,&data);
+	mlx_hook(data.mlx_win, KeyRelease, KeyReleaseMask, &handle_keyrelease,&data);
+	mlx_hook(data.mlx_win, DestroyNotify, StructureNotifyMask, &handle_x, &data);
+
 	mlx_loop(data.mlx);
 
 	mlx_destroy_display(data.mlx);

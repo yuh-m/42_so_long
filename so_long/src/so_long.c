@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 02:32:29 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/05 04:42:23 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/06 01:52:44 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@ int so_long(int argc, char **argv)
 		if (validate_extension(argv[1]))
 		{
 			ft_printf("starting game \n");
+			//still need to validate games rules before loading
 			load_map(argv[1]);
+
 		}
 		else
 		{

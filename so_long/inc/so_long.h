@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/05 05:18:37 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/06 02:22:28 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int load_map(char *map_file);
 int handle_no_event(void *data);
 int handle_keypress(int keysym, t_data *data);
 int handle_keyrelease(int keysym, t_data *data);
+int handle_x(t_data *data);
 
 
 

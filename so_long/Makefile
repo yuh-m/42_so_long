@@ -41,7 +41,8 @@ MAP = ./map/map1.ber
 SRC_FILES = so_long.c \
 			validate_extension.c \
 			load_map.c \
-			handle.c
+			handle.c \
+			render_image.c
 
 SOURCES = $(addprefix $(PATH_SRC), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))

@@ -26,7 +26,7 @@ int load_map(char *map_file)
 		free(data.mlx_win);
 		return(MLX_ERROR);
 	}
-	mlx_loop_hook(data.mlx, &handle_no_event, &data);
+	mlx_loop_hook(data.mlx, &render, &data);
 	mlx_hook(data.mlx_win, KeyPress, KeyPressMask, &handle_keypress,&data);
 	mlx_hook(data.mlx_win, KeyRelease, KeyReleaseMask, &handle_keyrelease,&data);
 	mlx_hook(data.mlx_win, DestroyNotify, StructureNotifyMask, &handle_x, &data);

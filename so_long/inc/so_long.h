@@ -26,7 +26,17 @@ typedef struct s_date
 {
 	void	*mlx;
 	void	*mlx_win;
+	t_img	img;
 } t_data;
+
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+} t_img;
 
 int so_long(int argc, char **argv);
 int validate_extension(char *filename);
@@ -38,7 +48,8 @@ int handle_keypress(int keysym, t_data *data);
 int handle_keyrelease(int keysym, t_data *data);
 int handle_x(t_data *data);
 
-
+/*Images loading */
+int render(t_data *data);
 
 #endif
 

@@ -21,7 +21,6 @@ int so_long(int argc, char **argv)
 			ft_printf("starting game \n");
 			//still need to validate games rules before loading
 			load_map(argv[1]);
-
 		}
 		else
 		{

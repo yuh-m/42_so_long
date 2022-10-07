@@ -42,7 +42,7 @@ SRC_FILES = so_long.c \
 			validate_extension.c \
 			load_map.c \
 			handle.c \
-			render_image.c
+			load_image.c
 
 SOURCES = $(addprefix $(PATH_SRC), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
@@ -81,11 +81,14 @@ run: all main
 
 
 #Debbuging tools
-leak:
-	$(VALGRIND) $(PATH_BIN)$(NAME)
+leak:./app/app.c
+	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
+	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
+	$(VALGRIND) $(PATH_BIN)$(NAME) $(MAP)
 
 gdb: ./app/app.c
-	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
+	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
+	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
 	$(DEBUGGER) $(PATH_BIN)$(NAME)
 
 #Delete compiled files

@@ -22,7 +22,7 @@ static void		load_img(t_data *data, t_img **img, char *addr)
 		ft_printf("Error loading sprite \n");
 	//(*img)->width = wid;
 	//(*img)->height = hei;
-	mlx_put_image_to_window(data->mlx, data->mlx_win, *img, 50,50);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, *img, 200,100);
 }
 
 static void get_img(t_data *data)

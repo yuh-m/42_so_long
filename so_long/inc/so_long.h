@@ -44,6 +44,12 @@ typedef struct s_img
 	XShmSegmentInfo	shm;
 }				t_img;
 
+typedef struct s_coord
+{
+	int x;
+	int y;
+}	t_coord;
+
 typedef struct s_date
 {
 	void	*mlx;
@@ -53,6 +59,8 @@ typedef struct s_date
 	t_img	*player;
 	t_img	*collectible;
 	t_img	*exit;
+	t_coord *map;
+	t_coord *player_pos;
 } t_data;
 
 int so_long(int argc, char **argv);

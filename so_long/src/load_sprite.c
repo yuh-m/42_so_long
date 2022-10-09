@@ -16,15 +16,13 @@
 
 static void		load_img(t_data *data, t_img **img, char *addr)
 {
-	int		wid;
-	int		hei;
-
-	*img = mlx_xpm_file_to_image(data->mlx, addr, &wid, &hei);
+	//ft_printf("Erroraaa \n");
+	*img = mlx_xpm_file_to_image(data->mlx, addr, &data->map_sz.x, &data->map_sz.y);
 	if (*img == 0)
 		ft_printf("Error loading sprite \n");
 	//(*img)->width = wid;
 	//(*img)->height = hei;
-	mlx_put_image_to_window(data->mlx, data->mlx_win, *img, 200,100);
+	//mlx_put_image_to_window(data->mlx, data->mlx_win, *img, 200,100); //testing the print herwqqq9o0087uuuuuue
 }
 
 static void get_img(t_data *data)

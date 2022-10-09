@@ -10,3 +10,18 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "../inc/so_long.h"
+
+
+
+void draw_map(t_data *data)
+{
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->player, 200,100);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->ground, 200,200);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->wall, 400,400);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->collectible, 0, 0);
+	mlx_put_image_to_window(data->mlx, data->mlx_win, data->exit, 350,500);
+	//map_size(data);
+
+}
+

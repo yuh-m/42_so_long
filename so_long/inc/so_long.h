@@ -23,6 +23,7 @@
 
 # define WINDOW_WID 1200
 # define WINDOW_HEI 800
+# define PXL_SZ 32
 # define IMG_ADDR_0 "./img/tile00.xpm"
 # define IMG_ADDR_1 "./img/tile01.xpm"
 # define IMG_ADDR_C "./img/ball.xpm"
@@ -61,24 +62,25 @@ typedef struct s_date
 	t_img	*player;
 	t_img	*collectible;
 	t_img	*exit;
-	t_coord *map_size;
-	t_coord *player_pos;
+	t_coord map_sz;
+	t_coord player_pos;
 
 } t_data;
 
-int so_long(int argc, char **argv);
-int validate_extension(char *filename);
-int load_map(char *map_file);
+int		so_long(int argc, char **argv);
+int		validate_extension(char *filename);
+int		load_map(char *map_file);
+void	draw_map(t_data *data);
 
 /*Handle.c*/
-int handle_no_event(void *data);
-int handle_keypress(int keysym, t_data *data);
-int handle_keyrelease(int keysym, t_data *data);
-int handle_x(t_data *data);
+int		handle_no_event(void *data);
+int		handle_keypress(int keysym, t_data *data);
+int		handle_keyrelease(int keysym, t_data *data);
+int		handle_x(t_data *data);
 
 /*Images loading */
 int load_sprite(t_data *data);
-//test func
+
 
 #endif
 

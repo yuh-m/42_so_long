@@ -32,7 +32,7 @@ PATH_LIBFT = ./util/libft/
 PATH_OBJ = ./obj/
 PATH_BIN = ./bin/
 
-#Maps
+#MAPS File
 MAP = ./map/map1.ber
 #MAP = ./map/map2.ber
 #MAP = ./map/map3.ber
@@ -41,8 +41,10 @@ MAP = ./map/map1.ber
 SRC_FILES = so_long.c \
 			validate_extension.c \
 			load_map.c \
-			handle.c \
-			load_sprite.c
+			load_sprite.c \
+			draw_map.c \
+			handle.c
+
 
 SOURCES = $(addprefix $(PATH_SRC), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))

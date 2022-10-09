@@ -12,6 +12,18 @@
 
 #include "../inc/so_long.h"
 
+
+static void get_map_size(t_data *data)
+{
+	int	i;
+
+	i = 0;
+	data->map_sz.x = (ft_strlen(data->map[i]) * PXL_SZ);
+	while (data->map[i] != (void *)0)
+		i++;
+	data->map_sz.y = i * PXL_SZ;
+}
+
 static char **read_map_file(char *map_file)
 {
 	int fd;
@@ -48,6 +60,8 @@ int load_map(char *map_file)
 	if (data.mlx == NULL)
 		return (MLX_ERROR);
 	data.map = read_map_file(map_file);
+	get_map_size(&data);
+	ft_printf("pass \n");
 	data.mlx = mlx_init();
 	data.mlx_win = mlx_new_window(data.mlx, WINDOW_WID, WINDOW_HEI, "so_long");
 	//window size actually depends on the number of rows and columns
@@ -63,6 +77,7 @@ int load_map(char *map_file)
 	mlx_hook(data.mlx_win, DestroyNotify, StructureNotifyMask, &handle_x, &data);
 
 	load_sprite(&data);
+	draw_map(&data);
 	mlx_loop(data.mlx);
 
 	mlx_destroy_display(data.mlx);

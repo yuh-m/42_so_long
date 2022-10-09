@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:05:42 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/09 01:27:50 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/09 05:46:48 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void		load_img(t_data *data, t_img **img, char *addr)
 		ft_printf("Error loading sprite \n");
 	//(*img)->width = wid;
 	//(*img)->height = hei;
-	//mlx_put_image_to_window(data->mlx, data->mlx_win, *img, 200,100); //testing the print herwqqq9o0087uuuuuue
+	//mlx_put_image_to_window(data->mlx, data->mlx_win, *img, 200,100); //testing the print here
 }
 
 static void get_img(t_data *data)

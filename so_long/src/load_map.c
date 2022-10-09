@@ -63,7 +63,7 @@ int load_map(char *map_file)
 	get_map_size(&data);
 	ft_printf("pass \n");
 	data.mlx = mlx_init();
-	data.mlx_win = mlx_new_window(data.mlx, WINDOW_WID, WINDOW_HEI, "so_long");
+	data.mlx_win = mlx_new_window(data.mlx, data.map_sz.x, data.map_sz.y, "so_long");
 	//window size actually depends on the number of rows and columns
 	if (data.mlx == NULL)
 	{

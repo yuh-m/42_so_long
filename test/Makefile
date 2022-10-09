@@ -12,9 +12,14 @@
 
 #it should get the bin on so_long, and test here
 
-CC = clang
+CC = clang -g3
+MLXFLAGS = -lmlx -lXext -lX11
 
-TESTS = test_validate_extension.c \
+TESTS_FILES = validate_extension.c \
+		ck_retangle.c
+
+PATH_TEST = ./test/
+TESTS = $(addprefix $(PATH_TEST), $(TESTS_FILES))
 
 TESTER = ./unity/src/unity.c
 
@@ -23,6 +28,6 @@ MAIN = test_solong.h test_solong.c
 FILE = ../so_long/util/so_long
 
 all:
-	$(CC) $(TESTS) $(TESTER) $(MAIN) $(FILE)
+	$(CC) $(TESTS) $(TESTER) $(MAIN) $(FILE) $(MLXFLAGS)
 	./a.out
 

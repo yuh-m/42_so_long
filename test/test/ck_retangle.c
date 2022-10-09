@@ -10,14 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./unity/src/unity.h"
-#include "../so_long/inc/so_long.h"
+#include "../../so_long/inc/so_long.h"
+#include "../unity/src/unity.h"
 
-void test_validate_extension(void)
+void test_rectangle(void)
 {
-	TEST_ASSERT_EQUAL(1, validate_extension("map1.ber"));
-	TEST_ASSERT_EQUAL(1, validate_extension(".ber"));
-	TEST_ASSERT_EQUAL(0, validate_extension(""));
-	TEST_ASSERT_EQUAL(0, validate_extension(".xyaber"));
-	TEST_ASSERT_EQUAL(0, validate_extension("ber.xyaber"));
-}se
+	t_data	data1;
+	t_data	data2;
+	t_data	data3;
+	t_data	data4;
+
+	data1.map = read_map_file("../so_long/map/map1.ber");
+	data2.map = read_map_file("./map/no_rectangle.ber");
+	data3.map = read_map_file("./map/no_rectangle1.ber");
+	data4.map = read_map_file("./map/one_wall.ber");
+
+	get_map_size(&data1);
+	get_map_size(&data2);
+	get_map_size(&data3);
+	get_map_size(&data4);
+
+	TEST_ASSERT_EQUAL(1, ck_rectangle(data1));
+	TEST_ASSERT_EQUAL(0, ck_rectangle(data2));
+	TEST_ASSERT_EQUAL(0, ck_rectangle(data3));
+	TEST_ASSERT_EQUAL(0, ck_rectangle(data4));
+}

@@ -13,3 +13,8 @@ DES : Create a new image the same way. They will fill it using the specified xpm
 RTN : Return NULL if an error occurs. Otherwise return a non-null pointer as an image identifier.
 
 width height are the places the img will be plotted on the windows
+
+
+XPM files - the images are fixed in size, so used imagemagick to rescale the files
+https://stackoverflow.com/questions/42055729/rescaling-xpm-image
+https://www.tecmint.com/install-imagemagick-on-debian-ubuntu/

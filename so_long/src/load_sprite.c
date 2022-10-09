@@ -17,7 +17,7 @@
 static void		load_img(t_data *data, t_img **img, char *addr)
 {
 	//ft_printf("Erroraaa \n");
-	*img = mlx_xpm_file_to_image(data->mlx, addr, &data->map_sz.x, &data->map_sz.y);
+	*img = mlx_xpm_file_to_image(data->mlx, addr, &data->map_sz_px.x, &data->map_sz_px.y);
 	if (*img == 0)
 		ft_printf("Error loading sprite \n");
 	//(*img)->width = wid;

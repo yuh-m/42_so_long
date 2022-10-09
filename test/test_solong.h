@@ -14,4 +14,5 @@
 #include "../so_long/inc/so_long.h"
 
 void test_validate_extension(void);
-
+void test_map_size(void);
+void test_rectangle(void);

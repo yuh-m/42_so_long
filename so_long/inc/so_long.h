@@ -62,12 +62,18 @@ typedef struct s_date
 	t_img	*player;
 	t_img	*collectible;
 	t_img	*exit;
+	t_coord map_sz_px;
 	t_coord map_sz;
 	t_coord player_pos;
 
 } t_data;
 
+/* so_long */
 int		so_long(int argc, char **argv);
+void	get_map_size(t_data *data);
+char	**read_map_file(char *map_file);
+
+/*load_map*/
 int		load_game(char *map_file, t_data data);
 void	draw_map(t_data *data);
 

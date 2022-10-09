@@ -12,13 +12,26 @@
 
 #include "../inc/so_long.h"
 
-static char **read_map_file(char *map_file)
+void	get_map_size(t_data *data)
 {
-	int fd;
-	char *accumulator;
-	char *holder;
-	char *line;
-	char **map;
+	int	i;
+
+	i = 0;
+	data->map_sz.x = ft_strlen(data->map[i]);
+	data->map_sz_px.x = data->map_sz.x * PXL_SZ;
+	while (data->map[i] != (void *)0)
+		i++;
+	data->map_sz.y = i;
+	data->map_sz_px.y = data->map_sz.y * PXL_SZ;
+}
+
+char	**read_map_file(char *map_file)
+{
+	int		fd;
+	char	*accumulator;
+	char	*holder;
+	char	*line;
+	char	**map;
 
 	fd = open(map_file, O_RDONLY);
 	if (fd == 1)
@@ -27,22 +40,22 @@ static char **read_map_file(char *map_file)
 	while (1)
 	{
 		line = get_next_line(fd);
-		if(!line)
-			break;
+		if (!line)
+			break ;
 		holder = accumulator;
 		accumulator = ft_strjoin(holder, line);
 		free(line);
 		free(holder);
 	}
-	map = ft_split(accumulator,'\n');
+	map = ft_split(accumulator, '\n');
 	free(accumulator);
 	close(fd);
-	return(map);
+	return (map);
 }
 
-int so_long(int argc, char **argv)
+int	so_long(int argc, char **argv)
 {
-	t_data data;
+	t_data	data;
 
 	if (argc == 2)
 	{
@@ -50,7 +63,8 @@ int so_long(int argc, char **argv)
 		{
 			data.map = read_map_file(argv[1]);
 			ft_printf("starting game \n");
-			if(ck_rectangle(data) & ck_border(data))
+			get_map_size(&data);
+			if (ck_rectangle(data) & ck_border(data))
 				load_game(argv[1], data);
 			else
 				exit_error("Map elements does not comply all rules");

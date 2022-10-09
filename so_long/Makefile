@@ -33,12 +33,12 @@ PATH_OBJ = ./obj/
 PATH_BIN = ./bin/
 
 #MAPS File
-#MAP = ./map/map1.ber
+MAP = ./map/map1.ber
 #MAP = ./map/map2.ber
 #MAP = ./map/map3.ber
 
 #map debbug
-MAP = ../test/map/no_rectangle.ber
+#MAP = ../test/map/no_rectangle.ber
 #MAP = ../test/map/empty_line.ber
 
 #Files

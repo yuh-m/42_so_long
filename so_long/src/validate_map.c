@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/09 08:46:39 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/09 15:31:56 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,26 @@ int ck_rectangle (t_data data)
 
 int ck_border (t_data data)
 {
-	char	*first_col;
-	char	*last_col;
+	//char	*first_col;
+	//char	*last_col;
+	//int		last_row;
 	int		i;
 	int		j;
 
 	i = 0;
-		while (data.map[i] !=)
-
+		while (data.map[i] != (void *)0)
+		{
+			if(i == 0 || i == data.map_sz.y)
+			{
+				j=0;
+				while (data.map[i][j] != '\n')
+				{
+					if (data.map[i][j] != '1')
+						return(0);
+					j++;
+				}
+			}
+		}
 	return(1);
 }
 

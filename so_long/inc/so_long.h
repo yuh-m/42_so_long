@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/09 06:24:06 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/09 07:59:06 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,13 @@ typedef struct s_date
 } t_data;
 
 int		so_long(int argc, char **argv);
-int		validate_extension(char *filename);
-int		load_map(char *map_file);
+int		load_game(char *map_file, t_data data);
 void	draw_map(t_data *data);
+
+/*validate map*/
+int		validate_extension(char *filename);
+int		ck_rectangle (t_data data);
+int		ck_border (t_data data);
 
 /*Handle.c*/
 int		handle_no_event(void *data);
@@ -79,8 +83,10 @@ int		handle_keyrelease(int keysym, t_data *data);
 int		handle_x(t_data *data);
 
 /*Images loading */
-int load_sprite(t_data *data);
+int		load_sprite(t_data *data);
 
+/*Error.c */
+void	exit_error(char *msg);
 
 #endif
 

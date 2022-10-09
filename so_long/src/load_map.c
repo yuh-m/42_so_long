@@ -6,12 +6,11 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:56:35 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/09 01:35:08 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/09 08:14:38 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-
 
 static void get_map_size(t_data *data)
 {
@@ -24,47 +23,14 @@ static void get_map_size(t_data *data)
 	data->map_sz.y = i * PXL_SZ;
 }
 
-static char **read_map_file(char *map_file)
+int		load_game(char *map_file, t_data data)
 {
-	int fd;
-	char *accumulator;
-	char *holder;
-	char *line;
-	char **map;
-
-	fd = open(map_file, O_RDONLY);
-	if (fd == 1)
-		return (NULL);
-	accumulator = ft_strdup("");
-	while (1)
-	{
-		line = get_next_line(fd);
-		if(!line)
-			break;
-		holder = accumulator;
-		accumulator = ft_strjoin(holder, line);
-		free(line);
-		free(holder);
-	}
-	map = ft_split(accumulator,'\n');
-	free(accumulator);
-	close(fd);
-	return(map);
-}
-
-int load_map(char *map_file)
-{
-	t_data	data;
-
 	ft_printf("Loading map %s \n", map_file);
 	if (data.mlx == NULL)
 		return (MLX_ERROR);
-	data.map = read_map_file(map_file);
-	get_map_size(&data);
-	ft_printf("pass \n");
 	data.mlx = mlx_init();
+	get_map_size(&data);
 	data.mlx_win = mlx_new_window(data.mlx, data.map_sz.x, data.map_sz.y, "so_long");
-	//window size actually depends on the number of rows and columns
 	if (data.mlx == NULL)
 	{
 		free(data.mlx_win);

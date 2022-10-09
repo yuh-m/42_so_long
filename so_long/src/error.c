@@ -6,13 +6,13 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:05:41 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/09 07:07:07 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/09 07:51:59 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void	exit_err(char *msg)
+void	exit_error(char *msg)
 {
 	ft_printf("Error - %s", msg);
 }

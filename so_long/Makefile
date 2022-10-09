@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/06 02:25:57 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/09 08:40:23 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,17 +33,22 @@ PATH_OBJ = ./obj/
 PATH_BIN = ./bin/
 
 #MAPS File
-MAP = ./map/map1.ber
+#MAP = ./map/map1.ber
 #MAP = ./map/map2.ber
 #MAP = ./map/map3.ber
 
+#map debbug
+MAP = ../test/map/no_rectangle.ber
+#MAP = ../test/map/empty_line.ber
+
 #Files
 SRC_FILES = so_long.c \
-			validate_extension.c \
+			validate_map.c \
 			load_map.c \
 			load_sprite.c \
 			draw_map.c \
-			handle.c
+			handle.c \
+			error.c
 
 
 SOURCES = $(addprefix $(PATH_SRC), $(SRC_FILES))

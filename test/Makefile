@@ -16,7 +16,10 @@ CC = clang -g3
 MLXFLAGS = -lmlx -lXext -lX11
 
 TESTS_FILES = validate_extension.c \
-		ck_retangle.c
+		ck_retangle.c \
+		ck_border.c \
+		ck_elements.c \
+
 
 PATH_TEST = ./test/
 TESTS = $(addprefix $(PATH_TEST), $(TESTS_FILES))

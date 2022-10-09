@@ -16,3 +16,5 @@
 void test_validate_extension(void);
 void test_map_size(void);
 void test_rectangle(void);
+void test_border(void);
+void test_elements(void);

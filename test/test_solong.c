@@ -25,5 +25,7 @@ int main(void)
 	UNITY_BEGIN();
 	RUN_TEST(test_validate_extension);
 	RUN_TEST(test_rectangle);
+	RUN_TEST(test_border);
+	RUN_TEST(test_elements);
 	return UNITY_END();
 }

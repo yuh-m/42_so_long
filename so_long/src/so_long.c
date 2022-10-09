@@ -25,6 +25,15 @@ void	get_map_size(t_data *data)
 	data->map_sz_px.y = data->map_sz.y * PXL_SZ;
 }
 
+void init_data(t_data *data)
+{
+	ft_printf("starting game \n");
+	get_map_size(data);
+	data->cnt_player = 0;
+	data->cnt_collectible = 0;
+	data->cnt_exit = 0;
+}
+
 char	**read_map_file(char *map_file)
 {
 	int		fd;
@@ -62,9 +71,8 @@ int	so_long(int argc, char **argv)
 		if (validate_extension(argv[1]))
 		{
 			data.map = read_map_file(argv[1]);
-			ft_printf("starting game \n");
-			get_map_size(&data);
-			if (ck_rectangle(data) & ck_border(data))
+			init_data(&data);
+			if (ck_rectangle(data) & ck_border(data) & ck_elements(data))
 				load_game(argv[1], data);
 			else
 				exit_error("Map elements does not comply all rules");

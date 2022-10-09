@@ -87,6 +87,7 @@ run: all main
 	@$(PATH_BIN)$(NAME) $(MAP)
 
 
+
 #Debbuging tools
 leak:./app/app.c
 	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
@@ -95,8 +96,7 @@ leak:./app/app.c
 
 gdb: ./app/app.c
 	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
-	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
-	$(DEBUGGER) $(PATH_BIN)$(NAME)
+	$(DEBUGGER) $(PATH_BIN)$(NAME) $(MAP)
 
 #Delete compiled files
 clean:

@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/09 07:59:06 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/10 01:45:47 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,10 +82,14 @@ int		load_game(char *map_file, t_data data);
 void	draw_map(t_data *data);
 
 /*validate map*/
-int		validate_extension(char *filename);
 int		ck_rectangle (t_data data);
 int		ck_border (t_data data);
 int		ck_elements (t_data data);
+int		validate_map(t_data data);
+int		search_empty_line (t_data data);
+
+/*validate file extension*/
+int		validate_extension(char *filename);
 
 /*Handle.c*/
 int		handle_no_event(void *data);

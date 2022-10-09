@@ -6,17 +6,17 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/09 08:40:23 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/10 01:56:46 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = so_long
 
 #Compile
-CC = clang
+CC = clang -g
 FLAGS = -Wall -Wextra -Werror
 AR = ar -rcs
-DEBUG = -g3
+#DEBUG = -g3
 MLXFLAGS = -lmlx -lXext -lX11
 #-lm -lz -L/usr/lib
 
@@ -40,10 +40,13 @@ MAP = ./map/map1.ber
 #map debbug
 #MAP = ../test/map/no_rectangle.ber
 #MAP = ../test/map/empty_line.ber
+#MAP = ../test//map/emptymap.ber
+#MAP = ../test//map/empty_line.ber
 
 #Files
 SRC_FILES = so_long.c \
 			validate_map.c \
+			validate_extension.c \
 			load_map.c \
 			load_sprite.c \
 			draw_map.c \
@@ -96,7 +99,9 @@ leak:./app/app.c
 
 gdb: ./app/app.c
 	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
-	$(DEBUGGER) $(PATH_BIN)$(NAME) $(MAP)
+	$(DEBUGGER) $(PATH_BIN)$(NAME)
+#set args map
+
 
 #Delete compiled files
 clean:

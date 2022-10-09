@@ -19,6 +19,7 @@ TESTS_FILES = validate_extension.c \
 		ck_retangle.c \
 		ck_border.c \
 		ck_elements.c \
+		validate_map.c
 
 
 PATH_TEST = ./test/

@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/09 15:31:56 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/10 01:56:34 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ int ck_rectangle (t_data data)
 	}
 	return(1);
 }
-
 
 int ck_border (t_data data)
 {
@@ -82,20 +81,22 @@ int ck_elements (t_data data)
 	return (1);
 }
 
-int validate_extension(char *filename)
+int		search_empty_line (t_data data)
 {
-	char	*extension;
-	int 	len;
 	int		i;
 
-	len = ft_strlen(filename);
-	extension = "reb.";
-	i = 4;
-	while (i > 0)
+	i = 0;
+	while (data.map[i] != (void *)0)
 	{
-		if (filename[len -i] != extension[i - 1])
+		if (data.map[i + 1] == (void *)0)
 			return (0);
-		i--;
+		i++;
 	}
 	return (1);
+}
+int validate_map(t_data data)
+{
+	if (ck_rectangle(data) & ck_border(data) & ck_elements(data))
+		return(1);
+	return(0);
 }

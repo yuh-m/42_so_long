@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 02:32:29 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/09 08:46:50 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/10 01:44:39 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	get_map_size(t_data *data)
 	data->map_sz_px.y = data->map_sz.y * PXL_SZ;
 }
 
-void init_data(t_data *data)
+void	init_data(t_data *data)
 {
-	ft_printf("starting game \n");
+	ft_printf("Starting game \n");
 	get_map_size(data);
 	data->cnt_player = 0;
 	data->cnt_collectible = 0;
@@ -71,20 +71,21 @@ int	so_long(int argc, char **argv)
 		if (validate_extension(argv[1]))
 		{
 			data.map = read_map_file(argv[1]);
+			if (search_empty_line(data))
+			{
+				exit_error("Map with empty line \n");
+				return (0);
+			}
 			init_data(&data);
-			if (ck_rectangle(data) & ck_border(data) & ck_elements(data))
+			if (validate_map(data))
 				load_game(argv[1], data);
 			else
 				exit_error("Map elements does not comply all rules");
 		}
 		else
-		{
-			ft_printf("wrong format\n");
-		}
+			exit_error("Wrong map format\n");
 	}
 	else
-	{
 		exit_error("Provide only the map to be loaded");
-	}
 	return (0);
 }

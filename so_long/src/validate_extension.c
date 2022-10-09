@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_solong.c                                      :+:      :+:    :+:   */
+/*   validate_extension.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 04:27:13 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/04 04:37:07 by eryudi-m         ###   ########.fr       */
+/*   Created: 2022/10/10 01:39:45 by eryudi-m          #+#    #+#             */
+/*   Updated: 2022/10/10 01:39:51 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "test_solong.h"
+#include "../inc/so_long.h"
 
-void setUp(void) {
-    // set stuff up here
-}
-
-void tearDown(void) {
-    // clean stuff up here
-}
-
-int main(void)
+int validate_extension(char *filename)
 {
-	UNITY_BEGIN();
-	RUN_TEST(test_validate_extension);
-	//RUN_TEST(test_rectangle);
-	//RUN_TEST(test_border);
-	//RUN_TEST(test_elements);
-	RUN_TEST(test_validate_map);
-	return UNITY_END();
+	char	*extension;
+	int 	len;
+	int		i;
+
+	len = ft_strlen(filename);
+	extension = "reb.";
+	i = 4;
+	while (i > 0)
+	{
+		if (filename[len -i] != extension[i - 1])
+			return (0);
+		i--;
+	}
+	return (1);
 }

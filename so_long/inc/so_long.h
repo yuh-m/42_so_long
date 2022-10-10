@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/10 01:45:47 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/10 20:01:11 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,15 +71,27 @@ typedef struct s_date
 
 } t_data;
 
-/* so_long */
+/* so_long
+	while reading the file, it loads some information to start the map before
+	initiate the minilibx
+*/
 int		so_long(int argc, char **argv);
 char	**read_map_file(char *map_file);
 void	get_map_size(t_data *data);
 void	init_data(t_data *data);
 
-/*load_map*/
+/*load_map.c
+	init minilibx
+*/
 int		load_game(char *map_file, t_data data);
+
+/*draw_map.c
+*/
 void	draw_map(t_data *data);
+void	put_img(t_data *data, t_img *img, int x, int y);
+
+/*player_movement*/
+void	get_start_position(t_data *data);
 
 /*validate map*/
 int		ck_rectangle (t_data data);
@@ -94,10 +106,9 @@ int		validate_extension(char *filename);
 /*Handle.c*/
 int		handle_no_event(void *data);
 int		handle_keypress(int keysym, t_data *data);
-int		handle_keyrelease(int keysym, t_data *data);
 int		handle_x(t_data *data);
 
-/*Images loading */
+/*load_sprite*/
 int		load_sprite(t_data *data);
 
 /*Error.c */

@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/04 03:11:53 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/04 04:56:21 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/10 02:55:59 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ TESTS_FILES = validate_extension.c \
 		ck_retangle.c \
 		ck_border.c \
 		ck_elements.c \
-		validate_map.c
+		validate_map.c 
 
 
 PATH_TEST = ./test/

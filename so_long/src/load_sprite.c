@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:05:42 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/09 05:46:48 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/10 11:23:27 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void		load_img(t_data *data, t_img **img, char *addr)
 	//ft_printf("Erroraaa \n");
 	*img = mlx_xpm_file_to_image(data->mlx, addr, &data->map_sz_px.x, &data->map_sz_px.y);
 	if (*img == 0)
-		ft_printf("Error loading sprite \n");
+		exit_error("Error loading sprite \n");
 	//(*img)->width = wid;
 	//(*img)->height = hei;
 	//mlx_put_image_to_window(data->mlx, data->mlx_win, *img, 200,100); //testing the print here

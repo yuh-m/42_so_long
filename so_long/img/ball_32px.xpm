@@ -2,8 +2,8 @@
 static char *ball_32px[] = {
 /* columns rows colors chars-per-pixel */
 "32 32 8 1 ",
-"  c None",
-". c black",
+"  c #70C9A1",
+". c None",
 "X c #501000",
 "o c #484858",
 "O c #903828",

@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:56:35 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/09 08:14:38 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/10 19:43:57 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,19 @@ int		load_game(char *map_file, t_data data)
 		free(data.mlx_win);
 		return(MLX_ERROR);
 	}
-	mlx_loop_hook(data.mlx, &handle_no_event, &data);
 
-	mlx_hook(data.mlx_win, KeyPress, KeyPressMask, &handle_keypress,&data);
-	//mlx_hook(data.mlx_win, KeyRelease, KeyReleaseMask, &handle_keyrelease,&data);
-	mlx_hook(data.mlx_win, DestroyNotify, StructureNotifyMask, &handle_x, &data);
 
 	load_sprite(&data);
+	get_start_position(&data);
 	draw_map(&data);
+
+	mlx_loop_hook(data.mlx, &handle_no_event, &data);
+
+	mlx_hook(data.mlx_win, KeyPress, KeyPressMask, handle_keypress, &data);
+	//mlx_hook(data.mlx_win, KeyRelease, KeyReleaseMask, &handle_keyrelease,&data);
+	mlx_hook(data.mlx_win, DestroyNotify, StructureNotifyMask, &handle_x, &data);
 	mlx_loop(data.mlx);
+
 
 	mlx_destroy_display(data.mlx);
 	free(data.mlx);

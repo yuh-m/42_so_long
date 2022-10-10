@@ -2,8 +2,8 @@
 static char *player_32px[] = {
 /* columns rows colors chars-per-pixel */
 "16 32 13 1 ",
-"  c None",
-". c black",
+"  c #70C9A1",
+". c None",
 "X c #682828",
 "o c #383878",
 "O c #784040",

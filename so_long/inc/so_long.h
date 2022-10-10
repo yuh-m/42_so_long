@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/10 20:01:11 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/10 22:59:53 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,11 @@ typedef struct s_date
 	t_coord map_sz_px;
 	t_coord map_sz;
 	t_coord player_pos;
+	t_coord exit_pos;
 	int		cnt_player;
 	int		cnt_collectible;
 	int		cnt_exit;
+	size_t	cnt_steps;
 
 } t_data;
 
@@ -91,7 +93,7 @@ void	draw_map(t_data *data);
 void	put_img(t_data *data, t_img *img, int x, int y);
 
 /*player_movement*/
-void	get_start_position(t_data *data);
+void	get_positions(t_data *data);
 
 /*validate map*/
 int		ck_rectangle (t_data data);

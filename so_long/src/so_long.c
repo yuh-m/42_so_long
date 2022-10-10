@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 02:32:29 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/10 01:44:39 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/10 22:57:04 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	init_data(t_data *data)
 	data->cnt_player = 0;
 	data->cnt_collectible = 0;
 	data->cnt_exit = 0;
+	data->cnt_steps = 0;
 }
 
 char	**read_map_file(char *map_file)

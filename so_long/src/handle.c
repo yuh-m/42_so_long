@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 04:44:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/10 23:34:23 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/10 23:51:24 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@ void move_axis(t_data *data, int x, int y)
 {
 	if (data->map[data->player_pos.y + y][data->player_pos.x + x] !=  '1')
 		{
+			if (data->map[data->player_pos.y + y][data->player_pos.x + x] == 'C')
+				data->cnt_collectible -= 1;
 			data->map[data->player_pos.y][data->player_pos.x] = '0';
-			data->player_pos.y = data->player_pos.y + y;
 			data->player_pos.x = data->player_pos.x + x;
+			data->player_pos.y = data->player_pos.y + y;
 			mlx_clear_window(data->mlx, data->mlx_win);
 			data->map[data->player_pos.y][data->player_pos.x] = 'P';
 			draw_map(data);

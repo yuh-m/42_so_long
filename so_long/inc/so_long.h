@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/10 22:59:53 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 01:52:49 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int		load_game(char *map_file, t_data data);
 /*draw_map.c
 */
 void	draw_map(t_data *data);
+void	draw_map_no_player(t_data *data);
 void	put_img(t_data *data, t_img *img, int x, int y);
 
 /*player_movement*/
@@ -113,8 +114,9 @@ int		handle_x(t_data *data);
 /*load_sprite*/
 int		load_sprite(t_data *data);
 
-/*Error.c */
+/*exit.c */
 void	exit_error(char *msg);
+void	ck_complete_map(t_data *data);
 
 #endif
 

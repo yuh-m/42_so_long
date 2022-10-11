@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 04:44:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/10 23:51:24 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 01:59:19 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@ void move_axis(t_data *data, int x, int y)
 			draw_map(data);
 			data->cnt_steps +=1;
 			ft_printf("STEPS = %d \n",data->cnt_steps);
+			ck_complete_map(data);
 		}
 }
 
-int handle_no_event()
-{
-	return(0);
-}
 int handle_keypress(int keysym, t_data *data)
 {
 	if (keysym == XK_Escape)
@@ -44,6 +41,11 @@ int handle_keypress(int keysym, t_data *data)
 		move_axis(data, -1, 0);
 	else if (keysym == XK_d)
 		move_axis(data, 1, 0);
+	return(0);
+}
+
+int handle_no_event()
+{
 	return(0);
 }
 

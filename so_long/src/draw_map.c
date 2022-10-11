@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 01:17:04 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/10 23:09:02 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 01:51:24 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,34 @@ void	draw_map(t_data *data)
 		{
 			put_img(data, data->ground, x, y);
 			put_img(data, data->exit, data->exit_pos.x, data->exit_pos.y);
+			put_img(data, data->player, data->player_pos.x, data->player_pos.y);
 			if (data->map[y][x] == '1')
 				put_img(data, data->wall, x, y);
 			else if (data->map[y][x] == 'C')
 				put_img(data, data->collectible, x, y);
-			else if (data->map[y][x] == 'P')
-				put_img(data, data->player, x, y);
+			x++;
+		}
+		y++;
+	}
+}
+
+void	draw_map_no_player(t_data *data)
+{
+	int		y;
+	int		x;
+
+	y = 0;
+	while (data->map[y])
+	{
+		x = 0;
+		while (data->map[y][x])
+		{
+			put_img(data, data->ground, x, y);
+			put_img(data, data->exit, data->exit_pos.x, data->exit_pos.y);
+			if (data->map[y][x] == '1')
+				put_img(data, data->wall, x, y);
+			else if (data->map[y][x] == 'C')
+				put_img(data, data->collectible, x, y);
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/10 02:19:14 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/11 01:39:07 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,7 @@ SRC_FILES = so_long.c \
 			draw_map.c \
 			player_movement.c \
 			handle.c \
-			error.c
+			exit.c
 
 
 SOURCES = $(addprefix $(PATH_SRC), $(SRC_FILES))

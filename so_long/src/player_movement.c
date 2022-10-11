@@ -6,14 +6,13 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 03:01:07 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/10 23:01:36 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 02:01:08 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-//Initial player movement is on draw_map function
-
+//Player movement are dealed on the handle file in backend and draw_map file
 void	get_positions(t_data *data)
 {
 	int		y;

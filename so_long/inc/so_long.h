@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 03:15:55 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 03:51:57 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@ typedef struct s_img
 
 typedef struct s_coord
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 }	t_coord;
 
 typedef struct s_date
@@ -64,16 +64,15 @@ typedef struct s_date
 	t_img	*collectible;
 	t_img	*exit;
 	t_img	*exit2;
-	t_coord map_sz_px;
-	t_coord map_sz;
-	t_coord player_pos;
-	t_coord exit_pos;
+	t_coord	map_sz_px;
+	t_coord	map_sz;
+	t_coord	player_pos;
+	t_coord	exit_pos;
 	int		cnt_player;
 	int		cnt_collectible;
 	int		cnt_exit;
 	size_t	cnt_steps;
-
-} t_data;
+}	t_data;
 
 /* so_long
 	while reading the file, it loads some information to start the map before
@@ -94,17 +93,16 @@ int		load_game(char *map_file, t_data data);
 void	draw_map(t_data *data, t_img **exit_img);
 void	draw_map_no_player(t_data *data);
 void	put_img(t_data *data, t_img *img, int x, int y);
-void	draw_wall(t_data *data);
 
 /*player_movement*/
 void	get_positions(t_data *data);
 
 /*validate map*/
-int		ck_rectangle (t_data data);
-int		ck_border (t_data data);
-int		ck_elements (t_data data);
+int		ck_rectangle(t_data data);
+int		ck_border(t_data data);
+int		ck_elements(t_data data);
 int		validate_map(t_data data);
-int		search_empty_line (t_data data);
+int		search_empty_line(t_data data);
 
 /*validate file extension*/
 int		validate_extension(char *filename);
@@ -123,4 +121,3 @@ void	exit_file(t_data *data);
 void	ck_complete_map(t_data *data);
 
 #endif
-

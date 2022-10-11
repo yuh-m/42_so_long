@@ -6,13 +6,13 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/10 02:17:27 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 03:41:22 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-int ck_rectangle (t_data data)
+int	ck_rectangle(t_data data)
 {
 	int		i;
 	size_t	len;
@@ -22,13 +22,13 @@ int ck_rectangle (t_data data)
 	while (data.map[i] != (void *)0)
 	{
 		if (ft_strlen(data.map[i]) != len)
-			return(0);
+			return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }
 
-int ck_border (t_data data)
+int	ck_border(t_data data)
 {
 	int		i;
 	int		j;
@@ -36,13 +36,13 @@ int ck_border (t_data data)
 	i = 0;
 	while (data.map[i] != (void *)0)
 	{
-		j=0;
-		if(i == 0 || i == data.map_sz.y - 1)
+		j = 0;
+		if (i == 0 || i == data.map_sz.y - 1)
 		{
 			while (data.map[i][j] != '\0')
 			{
 				if (data.map[i][j] != '1')
-					return(0);
+					return (0);
 				j++;
 			}
 		}
@@ -51,10 +51,10 @@ int ck_border (t_data data)
 				return (0);
 		i++;
 	}
-	return(1);
+	return (1);
 }
 
-int ck_elements (t_data data)
+int	ck_elements(t_data data)
 {
 	int		i;
 	int		j;
@@ -75,13 +75,13 @@ int ck_elements (t_data data)
 		}
 		i++;
 	}
-	if ((data.cnt_collectible < 1 || data.cnt_exit < 1 || data.cnt_player < 1)\
+	if ((data.cnt_collectible < 1 || data.cnt_exit < 1 || data.cnt_player < 1) \
 	|| (data.cnt_exit > 1 || data.cnt_player > 1))
-		return(0);
+		return (0);
 	return (1);
 }
 
-int		search_empty_line (t_data data)
+int	search_empty_line(t_data data)
 {
 	int		i;
 
@@ -94,9 +94,10 @@ int		search_empty_line (t_data data)
 	}
 	return (1);
 }
-int validate_map(t_data data)
+
+int	validate_map(t_data data)
 {
 	if (ck_rectangle(data) & ck_border(data) & ck_elements(data))
-		return(1);
-	return(0);
+		return (1);
+	return (0);
 }

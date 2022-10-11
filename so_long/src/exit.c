@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:05:41 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 02:48:43 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 03:50:17 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	ck_complete_map(t_data *data)
 	{
 		mlx_clear_window(data->mlx, data->mlx_win);
 		draw_map(data, &data->exit2);
-		if(data->player_pos.x == data->exit_pos.x \
+		if (data->player_pos.x == data->exit_pos.x \
 		& data->player_pos.y == data->exit_pos.y)
 		{
 			ft_printf("COMPLETED \n");
@@ -36,7 +36,7 @@ void	ck_complete_map(t_data *data)
 
 void	exit_file(t_data *data)
 {
-		mlx_destroy_window(data->mlx, data->mlx_win);
-		ft_printf("Closing window \n");
-		exit(0);
+	mlx_destroy_window(data->mlx, data->mlx_win);
+	ft_printf("Closing window \n");
+	exit(0);
 }

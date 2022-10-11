@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 04:44:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 01:59:19 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 02:48:08 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void move_axis(t_data *data, int x, int y)
 			data->player_pos.y = data->player_pos.y + y;
 			mlx_clear_window(data->mlx, data->mlx_win);
 			data->map[data->player_pos.y][data->player_pos.x] = 'P';
-			draw_map(data);
+			draw_map(data, &data->exit);
 			data->cnt_steps +=1;
 			ft_printf("STEPS = %d \n",data->cnt_steps);
 			ck_complete_map(data);
@@ -51,8 +51,7 @@ int handle_no_event()
 
 int handle_x(t_data *data)
 {
-	mlx_destroy_window(data->mlx, data->mlx_win);
-	ft_printf("Closing \n");
+	exit_file(data);
 	return(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:56:35 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 01:20:51 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 02:47:35 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int		load_game(char *map_file, t_data data)
 	}
 	load_sprite(&data);
 	get_positions(&data);
-	draw_map(&data);
+	draw_map(&data, &data.exit);
 	mlx_loop_hook(data.mlx, &handle_no_event, &data);
 	mlx_hook(data.mlx_win, KeyPress, KeyPressMask, handle_keypress, &data);
 	mlx_hook(data.mlx_win, DestroyNotify, StructureNotifyMask, &handle_x,\

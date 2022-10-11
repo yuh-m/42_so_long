@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 01:52:49 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 02:45:09 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@
 # define IMG_ADDR_0 "./img/tile00_32px.xpm"
 # define IMG_ADDR_1 "./img/tile01_32px.xpm"
 # define IMG_ADDR_C "./img/ball_32px.xpm"
-# define IMG_ADDR_E "./img/ladder_32px.xpm"
+# define IMG_ADDR_E "./img/stone_32px.xpm"
+# define IMG_ADDR_E_END "./img/ladder_32px.xpm"
 # define IMG_ADDR_P "./img/player_32px.xpm"
 # define MLX_ERROR 1
 
@@ -62,6 +63,7 @@ typedef struct s_date
 	t_img	*player;
 	t_img	*collectible;
 	t_img	*exit;
+	t_img	*exit2;
 	t_coord map_sz_px;
 	t_coord map_sz;
 	t_coord player_pos;
@@ -89,7 +91,7 @@ int		load_game(char *map_file, t_data data);
 
 /*draw_map.c
 */
-void	draw_map(t_data *data);
+void	draw_map(t_data *data, t_img **exit_img);
 void	draw_map_no_player(t_data *data);
 void	put_img(t_data *data, t_img *img, int x, int y);
 
@@ -116,6 +118,7 @@ int		load_sprite(t_data *data);
 
 /*exit.c */
 void	exit_error(char *msg);
+void	exit_file(t_data *data);
 void	ck_complete_map(t_data *data);
 
 #endif

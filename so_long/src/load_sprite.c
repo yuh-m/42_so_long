@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 03:05:42 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/10 11:23:27 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 02:37:08 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ static void get_img(t_data *data)
 	load_img(data, &data->wall, IMG_ADDR_1);
 	load_img(data, &data->collectible, IMG_ADDR_C);
 	load_img(data, &data->exit, IMG_ADDR_E);
+	load_img(data, &data->exit2, IMG_ADDR_E_END);
 	//load_img(data, &data->, IMG_ADDR_P);
 }
 

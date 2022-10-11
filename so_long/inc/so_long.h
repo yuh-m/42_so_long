@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 02:45:09 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 03:15:55 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ int		load_game(char *map_file, t_data data);
 void	draw_map(t_data *data, t_img **exit_img);
 void	draw_map_no_player(t_data *data);
 void	put_img(t_data *data, t_img *img, int x, int y);
+void	draw_wall(t_data *data);
 
 /*player_movement*/
 void	get_positions(t_data *data);
@@ -109,7 +110,7 @@ int		search_empty_line (t_data data);
 int		validate_extension(char *filename);
 
 /*Handle.c*/
-int		handle_no_event(void *data);
+int		handle_no_event(t_data *data);
 int		handle_keypress(int keysym, t_data *data);
 int		handle_x(t_data *data);
 

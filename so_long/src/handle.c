@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 04:44:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 02:48:08 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/11 03:12:37 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void move_axis(t_data *data, int x, int y)
 			data->map[data->player_pos.y][data->player_pos.x] = '0';
 			data->player_pos.x = data->player_pos.x + x;
 			data->player_pos.y = data->player_pos.y + y;
-			mlx_clear_window(data->mlx, data->mlx_win);
+			//mlx_clear_window(data->mlx, data->mlx_win);
 			data->map[data->player_pos.y][data->player_pos.x] = 'P';
 			draw_map(data, &data->exit);
 			data->cnt_steps +=1;
@@ -32,7 +32,7 @@ void move_axis(t_data *data, int x, int y)
 int handle_keypress(int keysym, t_data *data)
 {
 	if (keysym == XK_Escape)
-		mlx_destroy_window(data->mlx, data->mlx_win);
+		exit_file(data);
 	else if (keysym == XK_w)
 		move_axis(data, 0, -1);
 	else if (keysym == XK_s)
@@ -44,8 +44,18 @@ int handle_keypress(int keysym, t_data *data)
 	return(0);
 }
 
-int handle_no_event()
+int handle_no_event(t_data *data)
 {
+	//mlx_clear_window(data->mlx, data->mlx_win);
+	if (data->cnt_collectible == 0)
+	{
+		draw_map(data, &data->exit2);
+		if (data->player_pos.x == data->exit_pos.x \
+		& data->player_pos.y == data->exit_pos.y)
+			draw_map_no_player(data);
+	}
+	else
+		draw_map(data, &data->exit);
 	return(0);
 }
 

@@ -79,9 +79,12 @@ int	so_long(int argc, char **argv)
 			}
 			init_data(&data);
 			if (validate_map(data))
+			{
 				load_game(argv[1], data);
+			}
 			else
 				exit_error("Map elements does not comply all rules");
+			free_map(data.map);
 		}
 		else
 			exit_error("Wrong map format\n");

@@ -33,7 +33,7 @@ PATH_OBJ = ./obj/
 PATH_BIN = ./bin/
 
 #MAPS File
-MAP = ./map/map1.ber
+#MAP = ./map/map1.ber
 #MAP = ./map/map2.ber
 #MAP = ./map/map3.ber
 
@@ -94,7 +94,6 @@ run: all main
 
 #Debbuging tools
 leak:./app/app.c
-	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
 	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
 	$(VALGRIND) $(PATH_BIN)$(NAME) $(MAP)
 

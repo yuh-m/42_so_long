@@ -88,8 +88,7 @@ void	init_data(t_data *data);
 */
 int		load_game(char *map_file, t_data data);
 
-/*draw_map.c
-*/
+/*draw_map.c*/
 void	draw_map(t_data *data, t_img **exit_img);
 void	draw_map_no_player(t_data *data);
 void	put_img(t_data *data, t_img *img, int x, int y);
@@ -116,8 +115,9 @@ int		handle_x(t_data *data);
 int		load_sprite(t_data *data);
 
 /*exit.c */
+void	free_map(char **map);
 void	exit_error(char *msg);
-void	exit_file(t_data *data);
+int		exit_file(t_data *data);
 void	ck_complete_map(t_data *data);
 
 #endif

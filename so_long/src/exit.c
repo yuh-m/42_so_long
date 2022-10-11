@@ -12,6 +12,19 @@
 
 #include "../inc/so_long.h"
 
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while(map[i] != (void *)0)
+	{
+		free(map[i]);
+		i++;
+	}
+	free(map);
+}
+
 void	exit_error(char *msg)
 {
 	ft_printf("Error - %s \n", msg);
@@ -34,9 +47,17 @@ void	ck_complete_map(t_data *data)
 	}
 }
 
-void	exit_file(t_data *data)
+int	exit_file(t_data *data)
 {
-	mlx_destroy_window(data->mlx, data->mlx_win);
 	ft_printf("Closing window \n");
+	mlx_destroy_image(data->mlx, data->ground);
+	mlx_destroy_image(data->mlx, data->wall);
+	mlx_destroy_image(data->mlx, data->player);
+	mlx_destroy_image(data->mlx, data->collectible);
+	mlx_destroy_image(data->mlx, data->exit);
+	mlx_destroy_image(data->mlx, data->exit2);
+	mlx_destroy_window(data->mlx, data->mlx_win);
+	mlx_destroy_display(data->mlx);
 	exit(0);
+	return (0);
 }

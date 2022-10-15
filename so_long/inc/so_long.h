@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/15 02:07:17 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/15 03:38:19 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@
 # include <fcntl.h>
 # include "./libft.h"
 
-# define WINDOW_WID 1200
-# define WINDOW_HEI 800
 # define PXL_SZ 32
 # define IMG_ADDR_0 "./img/tile00_32px.xpm"
 # define IMG_ADDR_1 "./img/tile01_32px.xpm"
@@ -74,6 +72,16 @@ typedef struct s_date
 	size_t	cnt_steps;
 }	t_data;
 
+typedef struct s_path
+{
+	char	**map;
+	t_coord	map_sz;
+	t_coord	player_pos;
+	t_coord	exit_pos;
+	int		cnt_collectible;
+	int		cnt_exit;
+}	t_path;
+
 /* so_long
 	while reading the file, it loads some information to start the map before
 	initiate the minilibx
@@ -99,15 +107,17 @@ void	get_positions(t_data *data);
 /*validate map
  ck functions - return - 0 if does not follow the rules. 1 otherwise
 */
-
 int		ck_rectangle(t_data data);
 int		ck_border(t_data data);
 int		ck_elements(t_data data);
 int		validate_map(t_data data);
-int		search_empty_line(t_data data);
 
 /*validate map*/
 int		validate_extension(char *filename);
+int		search_empty_line(t_data data);
+
+/*validate existing path*/
+int		validate_path(t_data data);
 
 /*Handle.c*/
 int		handle_no_event(t_data *data);

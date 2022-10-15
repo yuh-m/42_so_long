@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/15 02:37:37 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/15 03:33:44 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ MAP = ./map/map1.ber
 SRC_FILES = so_long.c \
 			validate_map.c \
 			validate_extension.c \
+			validate_path.c \
 			load_map.c \
 			load_sprite.c \
 			draw_map.c \

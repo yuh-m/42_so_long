@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/11 01:39:07 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/15 02:37:37 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,15 +33,16 @@ PATH_OBJ = ./obj/
 PATH_BIN = ./bin/
 
 #MAPS File
-#MAP = ./map/map1.ber
+MAP = ./map/map1.ber
 #MAP = ./map/map2.ber
 #MAP = ./map/map3.ber
 
 #map debbug
 #MAP = ../test/map/no_rectangle.ber
 #MAP = ../test/map/empty_line.ber
-#MAP = ../test//map/emptymap.ber
-#MAP = ../test//map/empty_line.ber
+#MAP = ../test/map/emptymap.ber
+#MAP = ../test/map/empty_line.ber
+#MAP = ../test/map/other_char.ber
 
 #Files
 SRC_FILES = so_long.c \
@@ -95,6 +96,9 @@ run: all main
 #Debbuging tools
 leak:./app/app.c
 	$(CC) $(DEBUG) $(FLAGS) $(OBJECTS) $(MLXFLAGS) $< $(PATH_UTIL)$(NAME) -I$(PATH_INC) -o $(PATH_BIN)$(NAME)
+	$(VALGRIND) $(PATH_BIN)$(NAME) $(MAP)
+
+leaks:
 	$(VALGRIND) $(PATH_BIN)$(NAME) $(MAP)
 
 gdb: ./app/app.c

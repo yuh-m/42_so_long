@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 02:32:29 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 01:37:24 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/15 02:12:55 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,15 @@ int	so_long(int argc, char **argv)
 			}
 			init_data(&data);
 			if (validate_map(data))
-			{
 				load_game(argv[1], data);
-			}
 			else
-				exit_error("Map elements does not comply all rules");
+				exit_error("Map elements does not comply all rules\n");
 			free_map(data.map);
 		}
 		else
 			exit_error("Wrong map format\n");
 	}
 	else
-		exit_error("Provide only the map to be loaded");
+		exit_error("Provide only the map to be loaded \n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:05:41 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 03:50:17 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/15 02:49:38 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	free_map(char **map)
 	int	i;
 
 	i = 0;
-	while(map[i] != (void *)0)
+	while (map[i] != (void *)0)
 	{
 		free(map[i]);
 		i++;
@@ -58,6 +58,8 @@ int	exit_file(t_data *data)
 	mlx_destroy_image(data->mlx, data->exit2);
 	mlx_destroy_window(data->mlx, data->mlx_win);
 	mlx_destroy_display(data->mlx);
+	free(data->mlx);
+	free_map(data->map);
 	exit(0);
 	return (0);
 }

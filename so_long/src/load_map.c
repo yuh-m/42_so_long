@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:56:35 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 03:46:29 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/15 01:15:09 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int	load_game(char *map_file, t_data data)
 	mlx_hook(data.mlx_win, DestroyNotify, StructureNotifyMask, &handle_x, \
 			&data);
 	mlx_loop(data.mlx);
+	exit_file(&data);
 	free(data.mlx);
 	return (0);
 }

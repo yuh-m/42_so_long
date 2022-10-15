@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 03:51:57 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/15 02:07:17 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,17 @@ void	put_img(t_data *data, t_img *img, int x, int y);
 /*player_movement*/
 void	get_positions(t_data *data);
 
-/*validate map*/
+/*validate map
+ ck functions - return - 0 if does not follow the rules. 1 otherwise
+*/
+
 int		ck_rectangle(t_data data);
 int		ck_border(t_data data);
 int		ck_elements(t_data data);
 int		validate_map(t_data data);
 int		search_empty_line(t_data data);
 
-/*validate file extension*/
+/*validate map*/
 int		validate_extension(char *filename);
 
 /*Handle.c*/

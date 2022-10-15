@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:33:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 03:41:22 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/15 02:34:15 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,18 @@ int	ck_border(t_data data)
 	return (1);
 }
 
+static int	is_allowed_chars(t_data data, int x, int y)
+{
+	if (data.map[x][y] == 'E' || data.map[x][y] == 'P' || \
+		data.map[x][y] == 'C' || data.map[x][y] == '0' || \
+		data.map[x][y] == '1')
+	{
+		return (1);
+	}
+	exit_error("Char not allowed in the map \n");
+	return (0);
+}
+
 int	ck_elements(t_data data)
 {
 	int		i;
@@ -71,27 +83,15 @@ int	ck_elements(t_data data)
 				data.cnt_player++;
 			else if (data.map[i][j] == 'E')
 				data.cnt_exit++;
+			else if (is_allowed_chars(data, i, j) != 1)
+				return (0);
 			j++;
 		}
 		i++;
 	}
 	if ((data.cnt_collectible < 1 || data.cnt_exit < 1 || data.cnt_player < 1) \
-	|| (data.cnt_exit > 1 || data.cnt_player > 1))
+		|| (data.cnt_exit > 1 || data.cnt_player > 1))
 		return (0);
-	return (1);
-}
-
-int	search_empty_line(t_data data)
-{
-	int		i;
-
-	i = 0;
-	while (data.map[i] != (void *)0)
-	{
-		if (data.map[i + 1] == (void *)0)
-			return (0);
-		i++;
-	}
 	return (1);
 }
 

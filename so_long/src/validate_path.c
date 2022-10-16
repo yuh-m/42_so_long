@@ -6,13 +6,13 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 03:13:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/16 10:45:57 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 10:47:42 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-void flood(int x, int y, t_path *path)
+void	flood(int x, int y, t_path *path)
 {
 	if (path->map[x][y] != '1')
 	{
@@ -36,7 +36,7 @@ int	validate_path(t_data *data, char *map_file)
 	path.path_toexit = 1;
 	path.player_pos = data->player_pos;
 	path.cnt_collectible = data->cnt_collectible;
-	flood ( path.player_pos.y, path.player_pos.x, &path);
+	flood (path.player_pos.y, path.player_pos.x, &path);
 	free_map(path.map);
 	if (path.path_toexit == 0 & path.cnt_collectible == 0)
 	{

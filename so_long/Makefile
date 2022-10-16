@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/16 10:37:54 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/16 10:51:17 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ PATH_OBJ = ./obj/
 PATH_BIN = ./bin/
 
 #MAPS File
-#MAP = ./map/map1.ber
+MAP = ./map/map1.ber
 #MAP = ./map/map_path1.ber
 #MAP = ./map/map2.ber
 #MAP = ./map/map3.ber
@@ -44,7 +44,7 @@ PATH_BIN = ./bin/
 #MAP = ../test/map/emptymap.ber
 #MAP = ../test/map/other_char.ber
 #MAP = ../test/map/no_path.ber
-MAP = ../test/map/no_path_collectible.ber
+#MAP = ../test/map/no_path_collectible.ber
 
 
 #Files

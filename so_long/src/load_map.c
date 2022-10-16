@@ -6,12 +6,13 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:56:35 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/16 10:44:36 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 10:47:57 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
-void manage_hook(t_data data)
+
+void	manage_hook(t_data data)
 {
 	draw_map(&data, &data.exit);
 	mlx_loop_hook(data.mlx, handle_no_event, &data);

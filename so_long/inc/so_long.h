@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/16 09:15:25 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 10:48:32 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,9 +76,7 @@ typedef struct s_date
 typedef struct s_path
 {
 	char	**map;
-	t_coord	map_sz;
 	t_coord	player_pos;
-	//t_coord	exit_pos;
 	int		cnt_collectible;
 	int		path_toexit;
 }	t_path;

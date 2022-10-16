@@ -6,13 +6,12 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 01:17:04 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/11 03:28:30 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 12:22:51 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/so_long.h"
 
-//still need to test how to have two images overlapping each other
 void	put_img(t_data *data, t_img *img, int x, int y)
 {
 	mlx_put_image_to_window(data->mlx, data->mlx_win, img, x * PXL_SZ, \

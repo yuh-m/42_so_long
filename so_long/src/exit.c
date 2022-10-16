@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:05:41 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/16 10:44:49 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 15:40:50 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_map(char **map)
 
 void	exit_error(char *msg)
 {
-	ft_printf("Error - %s \n", msg);
+	ft_printf("Error \n  %s \n", msg);
 }
 
 void	ck_complete_map(t_data *data)

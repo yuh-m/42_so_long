@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 02:32:29 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/15 02:12:55 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 16:05:20 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ char	**read_map_file(char *map_file)
 	char	**map;
 
 	fd = open(map_file, O_RDONLY);
-	if (fd == 1)
+	if (fd <= 1)
 		return (NULL);
 	accumulator = ft_strdup("");
 	while (1)
@@ -63,6 +63,16 @@ char	**read_map_file(char *map_file)
 	return (map);
 }
 
+static void	init_game(t_data data, char *filename)
+{
+	init_data(&data);
+	if (validate_map(data))
+		load_game(filename, data);
+	else
+		exit_error("Map elements does not comply all rules\n");
+	free_map(data.map);
+}
+
 int	so_long(int argc, char **argv)
 {
 	t_data	data;
@@ -72,22 +82,22 @@ int	so_long(int argc, char **argv)
 		if (validate_extension(argv[1]))
 		{
 			data.map = read_map_file(argv[1]);
-			if (search_empty_line(data))
+			if (data.map != NULL)
 			{
-				exit_error("Map with empty line \n");
+				if (search_empty_line(data))
+				{
+					exit_error("Map with empty line \n");
+					return (0);
+				}
+				init_game(data, argv[1]);
 				return (0);
 			}
-			init_data(&data);
-			if (validate_map(data))
-				load_game(argv[1], data);
-			else
-				exit_error("Map elements does not comply all rules\n");
-			free_map(data.map);
+			exit_error("File does not exist\n");
 		}
 		else
 			exit_error("Wrong map format\n");
 	}
 	else
-		exit_error("Provide only the map to be loaded \n");
+		exit_error("Provide only the map as argument to be loaded \n");
 	return (0);
 }

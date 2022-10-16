@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:56:35 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/15 03:45:50 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 10:44:36 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,11 @@ int	load_game(char *map_file, t_data data)
 	}
 	load_sprite(&data);
 	get_positions(&data);
-	validate_path(data);
+	if (!validate_path(&data, map_file))
+	{
+		exit_file(&data);
+		return (0);
+	}
 	manage_hook(data);
 	return (0);
 }

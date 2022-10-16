@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 07:05:41 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/15 02:49:38 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 10:44:49 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,6 @@ void	ck_complete_map(t_data *data)
 
 int	exit_file(t_data *data)
 {
-	ft_printf("Closing window \n");
 	mlx_destroy_image(data->mlx, data->ground);
 	mlx_destroy_image(data->mlx, data->wall);
 	mlx_destroy_image(data->mlx, data->player);

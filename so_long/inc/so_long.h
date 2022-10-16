@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 17:04:26 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/15 03:38:19 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 09:15:25 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # define IMG_ADDR_E_END "./img/ladder_32px.xpm"
 # define IMG_ADDR_P "./img/player_32px.xpm"
 # define MLX_ERROR 1
+# define PATH_EXIST 1
 
 typedef struct s_img
 {
@@ -77,9 +78,9 @@ typedef struct s_path
 	char	**map;
 	t_coord	map_sz;
 	t_coord	player_pos;
-	t_coord	exit_pos;
+	//t_coord	exit_pos;
 	int		cnt_collectible;
-	int		cnt_exit;
+	int		path_toexit;
 }	t_path;
 
 /* so_long
@@ -117,7 +118,7 @@ int		validate_extension(char *filename);
 int		search_empty_line(t_data data);
 
 /*validate existing path*/
-int		validate_path(t_data data);
+int		validate_path(t_data *data, char *map_file);
 
 /*Handle.c*/
 int		handle_no_event(t_data *data);

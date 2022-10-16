@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 03:13:37 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/16 10:47:42 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 12:19:14 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,6 @@ int	validate_path(t_data *data, char *map_file)
 	{
 		return (PATH_EXIST);
 	}
-	exit_error("Valid path - does not exist\n\n");
+	exit_error("Valid path does not exist\n\n");
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 02:56:35 by eryudi-m          #+#    #+#             */
-/*   Updated: 2022/10/16 10:47:57 by eryudi-m         ###   ########.fr       */
+/*   Updated: 2022/10/16 12:05:32 by eryudi-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ void	manage_hook(t_data data)
 int	load_game(char *map_file, t_data data)
 {
 	ft_printf("Loading map %s \n", map_file);
-	if (data.mlx == NULL)
-		return (MLX_ERROR);
 	data.mlx = mlx_init();
 	data.mlx_win = mlx_new_window(data.mlx, data.map_sz_px.x, \
 								data.map_sz_px.y, "so_long");

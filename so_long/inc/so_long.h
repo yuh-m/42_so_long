@@ -99,7 +99,6 @@ int		load_game(char *map_file, t_data data);
 void	draw_map(t_data *data, t_img **exit_img);
 void	draw_map_no_player(t_data *data);
 void	put_img(t_data *data, t_img *img, int x, int y);
-
 /*player_movement*/
 void	get_positions(t_data *data);
 

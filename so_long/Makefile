@@ -6,7 +6,7 @@
 #    By: eryudi-m <eryudi-m@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/26 00:53:18 by eryudi-m          #+#    #+#              #
-#    Updated: 2022/10/16 16:09:10 by eryudi-m         ###   ########.fr        #
+#    Updated: 2022/10/17 11:24:50 by eryudi-m         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,6 @@ SRC_FILES = so_long.c \
 			load_map.c \
 			load_sprite.c \
 			draw_map.c \
-			player_movement.c \
 			handle.c \
 			exit.c
 
@@ -75,13 +74,12 @@ MAKE_NOPRINT = $(MAKE) --no-print-directory
 
 
 #TARGETS
-all: libft $(NAME)
+all: libft $(NAME) main
 
 libft:
 	@cd $(PATH_LIBFT) && $(MAKE_NOPRINT)
 
 $(NAME): $(OBJECTS)
-#develop - the copy only happens if there is a change on libt
 	@cp $(PATH_LIBFT)libft.a $(PATH_UTIL)$(NAME)
 	@ar -rcs $(PATH_UTIL)so_long $(OBJECTS)
 

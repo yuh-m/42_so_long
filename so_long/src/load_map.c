@@ -12,6 +12,36 @@
 
 #include "../inc/so_long.h"
 
+//Player movement are dealed on the handle file in backend and draw_map file
+void	get_positions(t_data *data)
+{
+	int		y;
+	int		x;
+
+	y = 0;
+	while (data->map[y])
+	{
+		x = 0;
+		while (data->map[y][x])
+		{
+			if (data->map[y][x] == 'P')
+			{
+				data->player_pos.x = x;
+				data->player_pos.y = y;
+			}
+			else if (data->map[y][x] == 'E')
+			{
+				data->exit_pos.x = x;
+				data->exit_pos.y = y;
+			}
+			else if (data->map[y][x] == 'C')
+				data->cnt_collectible += 1;
+			x++;
+		}
+		y++;
+	}
+}
+
 void	manage_hook(t_data data)
 {
 	draw_map(&data, &data.exit);
